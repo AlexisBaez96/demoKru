@@ -12,4 +12,4 @@ Los servicios rest seran expuestos en la siguiente dirección.
 localhost:9080.
 
 En la carpeta Archivo encontraremos un Pdf con toda la documentación y los archivos necesarios para su comprensión y ejecución,
-ademas un archivo llamado OneDrive donde esta todo el comprimido del proyecto.
+además un archivo llamado OneDrive donde esta todo el comprimido del proyecto.
