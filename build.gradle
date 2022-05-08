@@ -1,0 +1,54 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'io.quarkus' version'2.7.1.Final'
+    id "io.freefair.lombok" version "6.3.0"
+    id 'war'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+ext{
+    helidonversion='2.4.2'
+    quarkusVersion='2.7.1.Final'
+}
+dependencies {
+
+    implementation  enforcedPlatform("io.quarkus.platform:quarkus-bom:${project.quarkusVersion}")
+    implementation group:'io.quarkus', name:'quarkus-resteasy'
+    implementation group:'io.quarkus', name:'quarkus-arc'
+    implementation group:'io.quarkus', name:'quarkus-smallrye-health'
+
+    //json para quarkus
+    implementation("io.quarkus:quarkus-resteasy-jackson")
+
+    //driver postgresql
+    // https://mvnrepository.com/artifact/org.postgresql/postgresql
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.1'
+
+    //hikari
+    // https://mvnrepository.com/artifact/com.zaxxer/HikariCP
+    implementation group: 'com.zaxxer', name: 'HikariCP', version: '5.0.1'
+
+    //http cliente
+    implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.13'
+
+    //OpenApi
+    // https://mvnrepository.com/artifact/io.quarkus/quarkus-smallrye-openapi
+    implementation group: 'io.quarkus', name: 'quarkus-smallrye-openapi', version: '2.7.1.Final'
+
+}
+
+application{
+    mainClassName('com.programacion.Main')
+}
+
+sourceSets {
+    main {
+        output.resourcesDir = file("${buildDir}/classes/java/main")
+    }
+}
